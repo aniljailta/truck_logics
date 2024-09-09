@@ -1,5 +1,10 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {LoginFormData, User} from './type';
+import {
+  LoginFormData,
+  OtpRequestPayload,
+  ResetPasswordRequestPayload,
+  User,
+} from './type';
 interface initialStateProps {
   user: User | null;
   isLoading: boolean;
@@ -7,6 +12,7 @@ interface initialStateProps {
   error: null;
   token: null;
   otp: string;
+  userEmail: string;
 }
 const initialState: initialStateProps = {
   user: null,
@@ -15,6 +21,7 @@ const initialState: initialStateProps = {
   error: null,
   token: null,
   otp: '',
+  userEmail: '',
 };
 export const authSlice = createSlice({
   name: 'auth',
@@ -34,13 +41,29 @@ export const authSlice = createSlice({
       state.isFetching = false;
       state.error = action.payload;
     },
-    sendOtpRequest: (state, action: PayloadAction<string>) => {
+    sendOtpRequest: (state, action: PayloadAction<OtpRequestPayload>) => {
       state.isFetching = true;
+      state.userEmail = action.payload.email;
     },
     sendOtpSuccess: state => {
       state.isFetching = false;
+      state.error = null;
     },
     sendOtpFailure: (state, action) => {
+      state.isFetching = false;
+      state.error = action.payload;
+    },
+    resetPasswordRequest: (
+      state,
+      action: PayloadAction<ResetPasswordRequestPayload>,
+    ) => {
+      state.isFetching = true;
+    },
+    resetPasswordSuccess: state => {
+      state.isFetching = false;
+      state.error = null;
+    },
+    resetPasswordFailure: (state, action) => {
       state.isFetching = false;
       state.error = action.payload;
     },
@@ -78,6 +101,9 @@ export const {
   sendOtpRequest,
   sendOtpSuccess,
   sendOtpFailure,
+  resetPasswordRequest,
+  resetPasswordSuccess,
+  resetPasswordFailure,
   logoutRequest,
   logoutSuccess,
   logoutFailure,

@@ -4,6 +4,9 @@ import {
   loginFailure,
   loginRequest,
   loginSuccess,
+  resetPasswordFailure,
+  resetPasswordRequest,
+  resetPasswordSuccess,
   sendOtpFailure,
   sendOtpRequest,
   sendOtpSuccess,
@@ -19,31 +22,34 @@ function* loginSaga(): Generator<any, void, any> {
       yield put(loginSuccess(data));
 
       setStoreData('access_token', data.api_token);
-    } catch (error: any) {
+    } catch (error: unknown) {
       yield put(loginFailure(error));
     }
   }
 }
 function* forgotPasswordSaga(): Generator<any, void, any> {
   while (true) {
-    const {payload: email} = yield take(sendOtpRequest.type);
+    const {payload: OtpRequestPayload} = yield take(sendOtpRequest.type);
+    const {email, onSuccess} = OtpRequestPayload;
     try {
       yield call(forgotPasswordApi, email);
       yield put(sendOtpSuccess());
-    } catch (error: any) {
-      yield sendOtpFailure(error);
+      onSuccess();
+    } catch (error: unknown) {
+      yield put(sendOtpFailure(error));
     }
   }
 }
 
 function* resetPasswordSaga(): Generator<any, void, any> {
   while (true) {
-    const {payload: resetPasswordData} = yield take(sendOtpRequest.type);
+    const {payload: resetPasswordData} = yield take(resetPasswordRequest.type);
+    const {onSuccess, ...rest} = resetPasswordData;
     try {
-      yield call(resetPasswordApi, resetPasswordData);
-      yield put(sendOtpSuccess());
-    } catch (error: any) {
-      yield sendOtpFailure(error);
+      yield call(resetPasswordApi, rest);
+      yield put(resetPasswordSuccess());
+    } catch (error: unknown) {
+      yield put(resetPasswordFailure(error));
     }
   }
 }

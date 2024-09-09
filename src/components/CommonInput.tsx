@@ -1,4 +1,11 @@
-import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  KeyboardTypeOptions,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import React, {useRef, useState} from 'react';
 import {appBorderWidth, appPaddings, appRadius} from '@/constants/Styles';
 import appColor from '@/constants/Colors';
@@ -13,6 +20,8 @@ type InputProps = {
   isSecureEntry?: boolean;
   placeholder: string;
   rules?: any;
+  defaultValue?: string;
+  keyboardType?: KeyboardTypeOptions;
 };
 const CommonInput: React.FC<InputProps> = ({
   name,
@@ -20,6 +29,8 @@ const CommonInput: React.FC<InputProps> = ({
   control,
   placeholder,
   isSecureEntry = false,
+  defaultValue = '',
+  keyboardType = 'default',
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const textInputRef = useRef<TextInput>(null);
@@ -33,6 +44,9 @@ const CommonInput: React.FC<InputProps> = ({
           <Pressable onPress={() => textInputRef.current?.focus()}>
             <View style={styles.inputContainer}>
               <TextInput
+                ref={textInputRef}
+                defaultValue={defaultValue}
+                keyboardType={keyboardType}
                 autoCapitalize="none"
                 autoCorrect={false}
                 placeholder={placeholder}
@@ -40,7 +54,7 @@ const CommonInput: React.FC<InputProps> = ({
                 secureTextEntry={isSecureEntry}
                 style={styles.inputStyle}
                 onChangeText={(inputValue: string) => onChange(inputValue)}
-                value={value}
+                value={defaultValue ? defaultValue : value}
               />
               {isSecureEntry && (
                 <Pressable onPress={() => setShowPassword(prev => !prev)}>

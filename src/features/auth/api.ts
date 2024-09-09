@@ -1,6 +1,8 @@
 import RequestService from '@/services/RequestService';
 import Toast from 'react-native-toast-message';
 import {LoginFormData} from './type';
+import handleApiError from '@/helpers/errorHandling';
+import {ResetPasswordFormData} from './components/ResetPassword/ResetPassword';
 
 async function loginApi(loginCreds: LoginFormData) {
   try {
@@ -13,8 +15,8 @@ async function loginApi(loginCreds: LoginFormData) {
       });
       return response.data;
     }
-  } catch (e) {
-    console.error('login error', e);
+  } catch (e: unknown) {
+    return handleApiError(e);
   }
 }
 
@@ -28,11 +30,11 @@ async function forgotPasswordApi(email: string) {
         text2: response.data.message.split('.')[1],
       });
     }
-  } catch (e) {
-    console.error('error', e);
+  } catch (e: unknown) {
+    return handleApiError(e);
   }
 }
-async function resetPasswordApi(resetPasswordData: unknown) {
+async function resetPasswordApi(resetPasswordData: ResetPasswordFormData) {
   try {
     const response = await RequestService.post(
       'reset-password',
@@ -41,11 +43,11 @@ async function resetPasswordApi(resetPasswordData: unknown) {
     if (response && response.status === 200) {
       Toast.show({
         type: 'success',
-        text1: 'Password reset mail sent !',
+        text1: 'Password reset successful !',
         text2: response.data.message,
       });
     }
-  } catch (e) {
+  } catch (e: unknown) {
     console.error('error', e);
   }
 }

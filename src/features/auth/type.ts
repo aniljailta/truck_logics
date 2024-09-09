@@ -30,3 +30,16 @@ export type LoginResponse = {
   api_token: string;
   user: User;
 };
+
+export type OtpRequestPayload = {
+  email: string;
+  onSuccess: () => void;
+};
+
+export type ResetPasswordRequestPayload = {
+  email: string;
+  otp: string;
+  password: string;
+  password_confirmation: string;
+  onSuccess: () => void;
+};

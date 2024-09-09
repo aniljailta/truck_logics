@@ -18,11 +18,12 @@ import {appGap} from '@/constants/Styles';
 import {keyboardScroller} from '@/helpers/utility';
 import CommonButton from '@/components/CommonButton';
 import {SCREEN_WIDTH} from '@/constants/PixelScaling';
-import {useAppSelector} from '@/hooks/ReduxHooks';
+import {useAppNavigation, useAppSelector} from '@/hooks/ReduxHooks';
 import {useState} from 'react';
 
 const LoginScreen = () => {
   const dispatch = useAppDispatch();
+  const navigation = useAppNavigation();
 
   const {isFetching} = useAppSelector(state => state.auth);
 
@@ -39,7 +40,14 @@ const LoginScreen = () => {
     if (isLoginScreen) {
       dispatch(loginRequest(loginFormData));
     } else {
-      dispatch(sendOtpRequest(loginFormData.email));
+      dispatch(
+        sendOtpRequest({
+          email: loginFormData.email,
+          onSuccess: () => {
+            navigation.navigate('ResetPassword');
+          },
+        }),
+      );
     }
   };
   return (
