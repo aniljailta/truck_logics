@@ -1,6 +1,6 @@
 import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '@/constants/PixelScaling';
+import {SCREEN_WIDTH} from '@/constants/PixelScaling';
 import {appGap, appPaddings} from '@/constants/Styles';
 import {StyleSheet} from 'react-native';
 
@@ -9,11 +9,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: appPaddings.PADDING_24,
     paddingBottom: appPaddings.PADDING_16,
-    alignItems: 'center',
   },
   container: {
     flex: 1,
-    top: SCREEN_HEIGHT * 0.2,
+    justifyContent: 'center',
     alignItems: 'flex-start',
     gap: appGap.gap_32,
     width: SCREEN_WIDTH * 0.8,
