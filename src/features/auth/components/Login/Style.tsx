@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: appPaddings.PADDING_24,
     paddingBottom: appPaddings.PADDING_16,
-    backgroundColor: 'lightgrey',
+    alignItems: 'center',
   },
   container: {
     flex: 1,
