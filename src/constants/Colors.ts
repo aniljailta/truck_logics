@@ -1,10 +1,13 @@
 const appColor = {
+  BLACK: '#000000',
   WHITE: '#FFFFFF',
   APP_BLACK: '#1A1C1E',
   APP_GREY: '#6C7278',
   INPUT_BORDER_COLOR: '#EDF1F3',
   BUTTON_COLOR: '#152641',
   VALIDATION_COLOR: 'red',
+  ACTIVE_TAB_COLOR: '#152641',
+  IN_ACTIVE_TAB_COLOR: '#7E7E7E',
 };
 
 export default appColor;
