@@ -11,9 +11,22 @@ const styles = StyleSheet.create({
     paddingVertical: appPaddings.PADDING_16,
   },
   currentTripText: {
-    fontSize: appFontSize.FONT_20,
+    fontSize: appFontSize.FONT_22,
     color: appColor.BLACK,
-    fontWeight: appFontWeight.FONT_WEIGHT_600,
+    fontWeight: appFontWeight.FONT_WEIGHT_500,
+    paddingBottom:appPaddings.PADDING_10
+  },
+  mapImage: {
+    height: 220,
+    },
+  dispatchesColumn: {
+    flexDirection: 'column',
+    gap: appGap.gap_20
+  },
+  dispatchesRow: {
+    flexDirection: 'row',
+    gap: appGap.gap_20,
+    justifyContent: 'center'
   },
 });
 

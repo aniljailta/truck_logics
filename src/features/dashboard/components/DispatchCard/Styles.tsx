@@ -1,18 +1,19 @@
+import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
-import {appBorderWidth, appGap, appRadius} from '@/constants/Styles';
+import {appBorderWidth, appGap, appPaddings, appRadius} from '@/constants/Styles';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: 185,
-    height: 145,
+    width: 180,
+    height: 140,
     justifyContent: 'center',
     alignItems: 'center',
     gap: appGap.gap_8,
     backgroundColor: 'white',
     borderRadius: appRadius.RADIUS_15,
 
-    shadowColor: '#000000',
+    shadowColor: appColor.BLACK,
     shadowOffset: {
       width: 4,
       height: 4,
@@ -25,16 +26,21 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 26,
-    backgroundColor: '#245F75',
+   alignItems:'center',
+   justifyContent:'center'
   },
   textContainer: {
-    // gap: appGap.gap_4,
+  flexDirection: 'column',
+  
+
   },
   cardText: {
     fontSize: appFontSize.FONT_14,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     textAlign: 'center',
-    color: '#245F75',
+    marginBottom:0,
+    fontFamily:"Ubuntu-Medium"
+
   },
 });
 
