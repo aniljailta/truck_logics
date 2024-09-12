@@ -11,13 +11,13 @@ import styles from '../Login/Style';
 import TrendLogo from '@/assets/svg/TrendLogo';
 import {SCREEN_WIDTH} from '@/constants/PixelScaling';
 import {appGap} from '@/constants/Styles';
-import CommonInput from '@/components/CommonInput';
+import CommonInput from '@/components/ComonInput/CommonInput';
 import {useForm} from 'react-hook-form';
-import CommonButton from '@/components/CommonButton';
 import {authConstants} from '@/constants/StringConstants';
 import {useAppSelector} from '@/hooks/ReduxHooks';
 import {ResetPasswordRequestPayload} from '../../type';
-import ImageView from '@/components/ImageView';
+import ImageView from '@/components/ImageView/ImageView';
+import CommonButton from '@/components/CommonButton/CommonButton';
 
 export type ResetPasswordFormData = Omit<
   ResetPasswordRequestPayload,

@@ -24,26 +24,24 @@ const styles = StyleSheet.create({
     fontSize: appFontSize.FONT_16,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     color: appColor.BLACK,
-    fontFamily:"Ubuntu-Medium"
-
+    fontFamily: 'Ubuntu-Medium',
   },
   emailText: {
     fontSize: appFontSize.FONT_14,
     fontWeight: appFontWeight.FONT_WEIGHT_400,
     color: '#7D7D7D',
-    fontFamily:"Ubuntu-Medium"
-
+    fontFamily: 'Ubuntu-Medium',
   },
   headerRow: {
-      flexDirection: 'row',
-          alignItems:'center',
-          gap:appGap.gap_10
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: appGap.gap_10,
   },
   headerText: {
     fontSize: appFontSize.FONT_18,
-    fontWeight: '500',
-    color:'black',
-    fontFamily:"Ubuntu-Medium"
+    fontWeight: appFontWeight.FONT_WEIGHT_500,
+    color: appColor.BLACK,
+    fontFamily: 'Ubuntu-Medium',
   },
 });
 

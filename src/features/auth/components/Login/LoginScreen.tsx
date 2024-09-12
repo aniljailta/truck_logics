@@ -13,14 +13,14 @@ import {loginRequest, sendOtpRequest} from '../../slice';
 import styles from './Style';
 import TrendLogo from '@/assets/svg/TrendLogo';
 import {authConstants} from '@/constants/StringConstants';
-import CommonInput from '@/components/CommonInput';
+import CommonInput from '@/components/ComonInput/CommonInput';
 import {appGap} from '@/constants/Styles';
 import {keyboardScroller} from '@/helpers/utility';
-import CommonButton from '@/components/CommonButton';
 import {SCREEN_WIDTH} from '@/constants/PixelScaling';
 import {useAppNavigation, useAppSelector} from '@/hooks/ReduxHooks';
 import {useState} from 'react';
-import ImageView from '@/components/ImageView';
+import ImageView from '@/components/ImageView/ImageView';
+import CommonButton from '@/components/CommonButton/CommonButton';
 
 const LoginScreen = () => {
   const dispatch = useAppDispatch();

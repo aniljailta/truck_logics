@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     color: appColor.BLACK,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     paddingBottom: appPaddings.PADDING_10,
-    fontFamily: 'Ubuntu-Medium',
   },
   mapImage: {
     height: appWidthAndHeight.APP_HEIGHT_220,

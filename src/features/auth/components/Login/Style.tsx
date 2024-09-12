@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: appPaddings.PADDING_24,
     paddingBottom: appPaddings.PADDING_16,
-    alignItems:'center'
+    alignItems: 'center',
   },
   container: {
     flex: 1,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     fontSize: appFontSize.FONT_12,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
-    color: appColor.APP_GREY,
+    color: appColor.APP_LOGIN_GREY,
   },
   loginFieldsContainer: {
     width: '100%',

@@ -22,7 +22,7 @@ const MainStack = () => {
     checkToken()
       .then(token => {
         if (token) {
-          // dispatch(refreshTokenSuccess(token));
+          dispatch(refreshTokenSuccess(token));
         }
         dispatch(hideSplash());
       })

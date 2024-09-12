@@ -6,8 +6,7 @@ import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
 import {appPaddings} from '@/constants/Styles';
 import DashboardScreen from '@/features/dashboard/screens/Dashboard/DashboardScreen';
-import DispatchesScreen from '@/features/dashboard/screens/Dispatches/DispatchesScreen';
-
+import DispatchesScreen from '@/features/dashboard/screens/Dispatches/components/DispatchScreen/DispatchesScreen';
 import SupportScreen from '@/features/support/components/SupportScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 

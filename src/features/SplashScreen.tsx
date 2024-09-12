@@ -1,8 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import TrendLogo from '@/assets/svg/TrendLogo';
-import {SCREEN_HEIGHT} from '@/constants/PixelScaling';
-import ImageView from '@/components/ImageView';
+import ImageView from '@/components/ImageView/ImageView';
 
 const SplashScreen = () => {
   return (

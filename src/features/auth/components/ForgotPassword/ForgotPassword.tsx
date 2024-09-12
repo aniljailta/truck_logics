@@ -12,9 +12,9 @@ import {SCREEN_WIDTH} from '@/constants/PixelScaling';
 import TrendLogo from '@/assets/svg/TrendLogo';
 import {authConstants} from '@/constants/StringConstants';
 import {appGap} from '@/constants/Styles';
-import CommonInput from '@/components/CommonInput';
+import CommonInput from '@/components/ComonInput/CommonInput';
 import {useForm} from 'react-hook-form';
-import CommonButton from '@/components/CommonButton';
+import CommonButton from '@/components/CommonButton/CommonButton';
 
 type ForgotPasswordFormData = {
   email: string;

@@ -1,16 +1,34 @@
-import { View, Text, Image } from 'react-native';
+import {View, Text, Image} from 'react-native';
 import React from 'react';
 import styles from './Style';
-import { useAppSelector } from '@/hooks/ReduxHooks';
+import {useAppSelector} from '@/hooks/ReduxHooks';
 import NotificationIcon from '@/assets/svg/NotificationIcon';
 import ArrowBack from '@/assets/svg/ArrowBack';
+import CustomDropdown from '@/components/CommonDropDown/CommonDropDown';
 
-const Header = ({ isDashboard, isDispatchesList, }: { isDashboard?: boolean, isDispatchesList?: boolean, }) => {
-  const { user } = useAppSelector(state => state.auth);
+const Header = ({
+  isDashboard,
+  isDispatchesList,
+}: {
+  isDashboard?: boolean;
+  isDispatchesList?: boolean;
+}) => {
+  const options = [
+    {label: 'Option 1', value: '1'},
+    {label: 'Option 2', value: '2'},
+    {label: 'Option 3', value: '3'},
+  ];
+
+  const handleSelect = (item: {label: string; value: string}) => {
+    console.log(item);
+  };
+
+  const {user} = useAppSelector(state => state.auth);
+
   return (
     <View style={styles.container}>
-      {
-        isDashboard ? (<View style={styles.userInfoContainer}>
+      {isDashboard ? (
+        <View style={styles.userInfoContainer}>
           <Image
             source={require('@/assets/images/image.png')}
             style={styles.avatar}
@@ -19,12 +37,17 @@ const Header = ({ isDashboard, isDispatchesList, }: { isDashboard?: boolean, isD
             <Text style={styles.titleText}>Trend Transport</Text>
             <Text style={styles.emailText}>{user?.email}</Text>
           </View>
-        </View>) : (<View style={styles.headerRow}>
+        </View>
+      ) : isDispatchesList ? (
+        <View style={styles.headerRow}>
+          <CustomDropdown options={options} onSelect={handleSelect} />
+        </View>
+      ) : (
+        <View style={styles.headerRow}>
           <ArrowBack />
           <Text style={styles.headerText}>DIS-10044</Text>
-
-        </View>)
-      }
+        </View>
+      )}
       <NotificationIcon />
     </View>
   );
