@@ -1,16 +1,22 @@
 import {View, Text, Image} from 'react-native';
-import React from 'react';
-import styles from './Styles';
-import DispatchCard from '../../components/DispatchCard/DispatchCard';
+import React, {useEffect} from 'react';
 import DashboardPickupIcon from '@/assets/svg/DashboardPickupIcon';
 import appColor from '@/constants/Colors';
 import DashboardDeliverIcon from '@/assets/svg/DashboardDeliverIcon';
 import DashboardActiveIcon from '@/assets/svg/DashboardActiveIcon';
 import DashboardWaitingIcon from '@/assets/svg/DashboardWaitingIcon';
-import Header from '../../components/Header/Header';
 import ImageView from '@/components/ImageView/ImageView';
+import styles from './Styles';
+import Header from '@/components/Header/Header';
+import DispatchCard from '../DispatchCard/DispatchCard';
+import {useAppDispatch} from '@/hooks/ReduxHooks';
+import {dashboardStatsRequest} from '../../slice';
 
 const DashboardScreen = () => {
+  const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(dashboardStatsRequest());
+  // }, []);
   return (
     <ImageView>
       <View style={styles.wrapper}>

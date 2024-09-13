@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import ImageView from '@/components/ImageView/ImageView';
 import styles from './Styles';
-import Header from '@/features/dashboard/components/Header/Header';
+import Header from '@/components/Header/Header';
 
 const DispatchDetailScreen = () => {
   return (
