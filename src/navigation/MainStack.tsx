@@ -41,8 +41,10 @@ const MainStack = () => {
       screenComponent = DashboardStack;
       break;
     default:
-      screenName = 'AuthStack';
-      screenComponent = AuthStack;
+      // screenName = 'AuthStack';
+      // screenComponent = AuthStack;
+      screenName = 'DashboardStack';
+      screenComponent = DashboardStack;
   }
   return (
     <Stack.Navigator

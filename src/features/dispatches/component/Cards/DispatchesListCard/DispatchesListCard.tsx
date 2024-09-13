@@ -5,6 +5,7 @@ import DestinationIcon from '@/assets/svg/DestinationIcon';
 import DateIcon from '@/assets/svg/DateIcon';
 import TimeIcon from '@/assets/svg/TimeIcon';
 import ForwardArrow from '@/assets/svg/ForwardArrow';
+import {appMargins} from '@/constants/Styles';
 import styles from './Styles';
 
 interface LocationInfo {
@@ -12,12 +13,14 @@ interface LocationInfo {
   date: string;
   time: string;
 }
+
 interface StatusColors {
   [key: string]: {
     backgroundColor: string;
     textColor: string;
   };
 }
+
 const statusColors: StatusColors = {
   'In Progress': {
     backgroundColor: '#DEFFEB',
@@ -32,11 +35,13 @@ const statusColors: StatusColors = {
     textColor: '#FF4D4F',
   },
 };
+
 interface DispatchesListCardProps {
   dispatchNumber: string;
   status: string;
   pickup: LocationInfo;
   delivery: LocationInfo;
+  isDetailScreen?: boolean;
 }
 
 const StatusBadge: React.FC<{status: string}> = ({status}) => {
@@ -70,19 +75,38 @@ const DottedLine: React.FC = () => (
   </View>
 );
 
-const LocationDetails: React.FC<LocationInfo> = ({location, date, time}) => (
+const LocationDetails: React.FC<
+  LocationInfo & {isDetailScreen?: boolean; isPickup?: boolean}
+> = ({location, date, time, isDetailScreen, isPickup}) => (
   <View style={styles.locationDetailsContainer}>
-    <Text style={styles.locationText}>{location}</Text>
-    <View style={styles.dateTimeContainer}>
-      <View style={styles.iconTextContainer}>
-        <DateIcon />
-        <Text style={styles.dateTimeText}>{date}</Text>
-      </View>
-      <View style={styles.iconTextContainer}>
-        <TimeIcon />
-        <Text style={styles.dateTimeText}>{time}</Text>
-      </View>
-    </View>
+    {isDetailScreen ? (
+      <>
+        <Text style={styles.dateTimeText}>
+          {isPickup ? 'Pickup' : 'Delivery'}
+        </Text>
+        <Text style={styles.locationText}>{location}</Text>
+      </>
+    ) : (
+      <>
+        <Text style={styles.locationText}>{location}</Text>
+        <View style={styles.dateTimeContainer}>
+          <View style={styles.iconTextContainer}>
+            <DateIcon />
+            <Text
+              style={[styles.dateTimeText, {marginLeft: appMargins.MARGIN_5}]}>
+              {date}
+            </Text>
+          </View>
+          <View style={styles.iconTextContainer}>
+            <TimeIcon />
+            <Text
+              style={[styles.dateTimeText, {marginLeft: appMargins.MARGIN_5}]}>
+              {time}
+            </Text>
+          </View>
+        </View>
+      </>
+    )}
   </View>
 );
 
@@ -91,19 +115,22 @@ const DispatchesListCard: React.FC<DispatchesListCardProps> = ({
   status,
   pickup,
   delivery,
+  isDetailScreen,
 }) => {
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.headerContainer}>
-        <View style={styles.dispatchInfoContainer}>
-          <Image
-            style={styles.dispatchIcon}
-            source={require('@/assets/images/dispatchNumberIcon.png')}
-          />
-          <Text style={styles.dispatchNumberText}>{dispatchNumber}</Text>
+      {!isDetailScreen && (
+        <View style={styles.headerContainer}>
+          <View style={styles.dispatchInfoContainer}>
+            <Image
+              style={styles.dispatchIcon}
+              source={require('@/assets/images/dispatchNumberIcon.png')}
+            />
+            <Text style={styles.dispatchNumberText}>{dispatchNumber}</Text>
+          </View>
+          <StatusBadge status={status} />
         </View>
-        <StatusBadge status={status} />
-      </View>
+      )}
 
       <View style={styles.contentContainer}>
         <View style={styles.locationIconsContainer}>
@@ -113,14 +140,24 @@ const DispatchesListCard: React.FC<DispatchesListCardProps> = ({
         </View>
 
         <View style={styles.locationsContainer}>
-          <LocationDetails {...pickup} />
+          <LocationDetails
+            {...pickup}
+            isDetailScreen={isDetailScreen}
+            isPickup={true}
+          />
           <View style={styles.locationDetailsMargin}></View>
-          <LocationDetails {...delivery} />
+          <LocationDetails
+            {...delivery}
+            isDetailScreen={isDetailScreen}
+            isPickup={false}
+          />
         </View>
 
-        <View style={styles.arrowContainer}>
-          <ForwardArrow />
-        </View>
+        {!isDetailScreen && (
+          <View style={styles.arrowContainer}>
+            <ForwardArrow />
+          </View>
+        )}
       </View>
     </View>
   );

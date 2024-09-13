@@ -72,6 +72,7 @@ const appMargins = {
 
 const appWidthAndHeight = {
   APP_WIDTH_1: 1,
+  APP_WIDTH_2: 2,
   APP_WIDTH_4: 4,
   APP_WIDTH_5: 5,
   APP_WIDTH_8: 8,
@@ -89,6 +90,7 @@ const appWidthAndHeight = {
   APP_WIDTH_52: 52,
   APP_WIDTH_54: 54,
   APP_WIDTH_60: 60,
+  APP_WIDTH_80: 80,
   APP_WIDTH_100: 100,
   APP_WIDTH_102: 102,
   APP_WIDTH_120: 120,

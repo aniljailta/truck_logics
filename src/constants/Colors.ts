@@ -13,6 +13,7 @@ const appColor = {
   DELIVER_ORDER_COLOR: '#00A757',
   ACTIVE_ORDER_COLOR: '#5079F2',
   WAITING_ORDER_COLOR: '#E26643',
+  APP_ORANGE_COLOR: '#E26643',
 };
 
 export default appColor;

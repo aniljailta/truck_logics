@@ -1,10 +1,9 @@
 import {TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import ImageView from '@/components/ImageView/ImageView';
-
 import Header from '@/components/Header/Header';
 import {useAppNavigation} from '@/hooks/ReduxHooks';
-import DispatchesListCard from '../DispatchesListCard/DispatchesListCard';
+import DispatchesListCard from '../Cards/DispatchesListCard/DispatchesListCard';
 import styles from './Styles';
 
 const DispatchesScreen = () => {

@@ -5,8 +5,8 @@ import TruckIcon from '@/assets/svg/TruckIcon';
 import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
 import {appPaddings} from '@/constants/Styles';
-import DashboardScreen from '@/features/dashboard/screens/Dashboard/DashboardScreen';
-import DispatchesScreen from '@/features/dashboard/screens/Dispatches/components/DispatchScreen/DispatchesScreen';
+import DashboardScreen from '@/features/dashboard/components/DashboardScreen/DashboardScreen';
+import DispatchesScreen from '@/features/dispatches/component/DispatchList/DispatchesScreen';
 import SupportScreen from '@/features/support/components/SupportScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -64,6 +64,8 @@ const TabStack = () => {
           tabBarLabel: 'Dispatches',
           tabBarIcon: ({focused}) => (
             <TruckIcon
+              height={24}
+              width={24}
               fill={
                 focused
                   ? appColor.ACTIVE_TAB_COLOR

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     marginBottom: appMargins.MARGIN_10,
   },
   locationDetailsMargin: {
-    marginVertical: 10,
+    marginVertical: appMargins.MARGIN_10,
   },
   locationText: {
     fontSize: appFontSize.FONT_14,
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
     marginRight: appRadius.RADIUS_10,
   },
   dateTimeText: {
-    marginLeft: appMargins.MARGIN_5,
     fontSize: appFontSize.FONT_14,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     fontFamily: 'Ubuntu-Medium',

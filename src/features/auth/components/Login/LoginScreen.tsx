@@ -32,6 +32,8 @@ const LoginScreen = () => {
 
   const {control, handleSubmit} = useForm<LoginFormData>({
     defaultValues: {
+      // email: 'rtanvi79@gmail.com',
+      // password: 'password',
       email: 'rtanvi79@gmail.com',
       password: 'password',
     },
@@ -70,7 +72,7 @@ const LoginScreen = () => {
                   <Text>
                     {isLoginScreen
                       ? authConstants.SIGN_IN_SUB_HEADING
-                      : authConstants.FORGOT_PASSWORD_SUB_HEADING}{' '}
+                      : authConstants.FORGOT_PASSWORD_SUB_HEADING}
                   </Text>
                 </View>
               </View>

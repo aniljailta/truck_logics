@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import TabStack from '../TabStack';
-import DispatchDetailScreen from '@/features/dashboard/screens/Dispatches/components/DispatchDetailScreen.tsx/DispatchDetailScreen';
+import DispatchDetailScreen from '@/features/dispatches/component/DispatchDetail/DispatchDetailScreen';
 
 type DashboardStackParamList = {
   TabStack: undefined;

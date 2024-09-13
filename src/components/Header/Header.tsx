@@ -1,7 +1,7 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import styles from './Style';
-import {useAppSelector} from '@/hooks/ReduxHooks';
+import {useAppNavigation, useAppSelector} from '@/hooks/ReduxHooks';
 import NotificationIcon from '@/assets/svg/NotificationIcon';
 import ArrowBack from '@/assets/svg/ArrowBack';
 import CustomDropdown from '@/components/CommonDropDown/CommonDropDown';
@@ -24,7 +24,7 @@ const Header = ({
   };
 
   const {user} = useAppSelector(state => state.auth);
-
+  const navigation = useAppNavigation();
   return (
     <View style={styles.container}>
       {isDashboard ? (
@@ -44,7 +44,12 @@ const Header = ({
         </View>
       ) : (
         <View style={styles.headerRow}>
-          <ArrowBack />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <ArrowBack />
+          </TouchableOpacity>
           <Text style={styles.headerText}>DIS-10044</Text>
         </View>
       )}
