@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './Styles';
 
@@ -14,16 +14,22 @@ const tabs: TabItem[] = [
   {key: 'notes', title: 'Notes'},
 ];
 
-const CustomTabBar: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('summary');
+interface CustomTabBarProps {
+  activeTab: string;
+  onChangeTab: (tabKey: string) => void;
+}
 
+const CustomTabBar: React.FC<CustomTabBarProps> = ({
+  activeTab,
+  onChangeTab,
+}) => {
   return (
     <View style={styles.container}>
       {tabs.map(tab => (
         <TouchableOpacity
           key={tab.key}
           style={[styles.tab, activeTab === tab.key && styles.activeTab]}
-          onPress={() => setActiveTab(tab.key)}>
+          onPress={() => onChangeTab(tab.key)}>
           <Text
             style={[
               styles.tabText,
