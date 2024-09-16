@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
     color: appColor.APP_GREY,
     fontFamily: 'Ubuntu-Medium',
   },
+  divider: {
+    backgroundColor: '#DFDFDF',
+    height: 1,
+    width: '100%',
+    marginVertical: appMargins.MARGIN_10,
+  },
 });
 
 export default styles;

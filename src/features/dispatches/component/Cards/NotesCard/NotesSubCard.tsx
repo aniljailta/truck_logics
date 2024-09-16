@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './Styles';
-import appColor from '@/constants/Colors';
 
 const NotesSubCard = () => {
   return (
@@ -18,13 +17,7 @@ const NotesSubCard = () => {
       <Text style={styles.noteDetailsSubheading}>
         Completed 08/02 01:14 by Evangeline Mendoza
       </Text>
-      <View
-        style={{
-          backgroundColor: '#DFDFDF',
-          height: 1,
-          width: '100%',
-          marginVertical: 10,
-        }}></View>
+      <View style={styles.divider}></View>
     </>
   );
 };

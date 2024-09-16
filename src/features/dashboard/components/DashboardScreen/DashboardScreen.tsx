@@ -20,7 +20,7 @@ const DashboardScreen = () => {
   return (
     <ImageView>
       <View style={styles.wrapper}>
-        <Header isDashboard={true} />
+        <Header isDashboard={true} headerText="" />
         <Text style={styles.currentTripText}>Your Current Trip</Text>
 
         <Image

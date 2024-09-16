@@ -11,7 +11,7 @@ const DispatchesScreen = () => {
   return (
     <ImageView>
       <View style={styles.wrapper}>
-        <Header isDispatchesList={true} />
+        <Header isDispatchesList={true} headerText="" />
 
         <TouchableOpacity
           onPress={() => {
