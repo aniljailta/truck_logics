@@ -55,7 +55,7 @@ const DashboardScreen = () => {
               <DispatchCard
                 title={'Awaiting'}
                 count={'35'}
-                color={appColor.WAITING_ORDER_COLOR}
+                color={appColor.APP_ORANGE_COLOR}
                 icon={<DashboardWaitingIcon />}
               />
             </View>
