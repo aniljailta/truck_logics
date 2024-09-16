@@ -11,7 +11,7 @@ type ButtonProps = {
 };
 const CommonButton: React.FC<ButtonProps> = ({
   title,
-  color = appColor.BUTTON_COLOR,
+  color = appColor.BUTTON_PRIMARY_COLOR,
   onPress,
   isLoading,
 }) => {

@@ -6,7 +6,6 @@ import {
   appRadius,
   appWidthAndHeight,
 } from '@/constants/Styles';
-
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -39,37 +38,20 @@ const styles = StyleSheet.create({
     borderRadius: appRadius.RADIUS_50,
     padding: appPaddings.PADDING_8,
   },
-  content: {marginBottom: appMargins.MARGIN_16},
-  infoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+
+  noteDetailHeading: {
+    fontSize: appFontSize.FONT_12,
+    fontWeight: appFontWeight.FONT_WEIGHT_400,
     marginBottom: appMargins.MARGIN_8,
-  },
-  infoText: {
-    fontSize: appFontSize.FONT_14,
-    fontWeight: appFontWeight.FONT_WEIGHT_400,
+    color: appColor.BUTTON_SECONDARY_COLOR,
     fontFamily: 'Ubuntu-Medium',
-    marginLeft: appMargins.MARGIN_8,
+  },
+  noteDetailsSubheading: {
+    fontSize: appFontSize.FONT_12,
+    fontWeight: appFontWeight.FONT_WEIGHT_400,
+    marginBottom: appMargins.MARGIN_8,
     color: appColor.APP_GREY,
-  },
-  viewAllButton: {
-    backgroundColor: appColor.BUTTON_SECONDARY_COLOR,
-    padding: appPaddings.PADDING_10,
-    borderRadius: appRadius.RADIUS_5,
-    alignItems: 'center',
-  },
-  viewAllButtonContainer: {
-    alignItems: 'flex-start',
-  },
-  viewAllText: {
-    color: appColor.WHITE,
-    fontWeight: appFontWeight.FONT_WEIGHT_400,
-    fontSize: appFontSize.FONT_14,
     fontFamily: 'Ubuntu-Medium',
-  },
-  dateTimeContainer: {
-    flexDirection: 'row',
-    marginVertical: appMargins.MARGIN_16,
   },
 });
 

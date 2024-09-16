@@ -1,10 +1,10 @@
-import {View} from 'react-native';
-import React from 'react';
-import ImageView from '@/components/ImageView/ImageView';
-import styles from './Styles';
 import Header from '@/components/Header/Header';
+import ImageView from '@/components/ImageView/ImageView';
+import React from 'react';
+import {View} from 'react-native';
+import CheckAllCallsScreen from './CheckCallsList/CheckAllCallsScreen';
 import CustomTabBar from './Common/CustomTabbar';
-import SummaryScreen from './Summary/SummaryScreen';
+import styles from './Styles';
 
 const DispatchDetailScreen = () => {
   return (
@@ -12,7 +12,8 @@ const DispatchDetailScreen = () => {
       <View style={styles.wrapper}>
         <Header />
         <CustomTabBar />
-        <SummaryScreen />
+        {/* <SummaryScreen /> */}
+        <CheckAllCallsScreen />
       </View>
     </ImageView>
   );

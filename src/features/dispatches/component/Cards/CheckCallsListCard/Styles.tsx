@@ -6,7 +6,6 @@ import {
   appRadius,
   appWidthAndHeight,
 } from '@/constants/Styles';
-
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -28,18 +27,20 @@ const styles = StyleSheet.create({
   },
   titleContainer: {flexDirection: 'row', alignItems: 'center'},
   title: {
-    fontSize: appFontSize.FONT_16,
+    fontSize: appFontSize.FONT_14,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     color: appColor.BUTTON_SECONDARY_COLOR,
     fontFamily: 'Ubuntu-Medium',
     marginLeft: appMargins.MARGIN_8,
   },
-  addButton: {
-    backgroundColor: appColor.BUTTON_SECONDARY_COLOR,
-    borderRadius: appRadius.RADIUS_50,
+  iconContainer: {
+    marginHorizontal: appMargins.MARGIN_5,
+    borderRadius: appRadius.RADIUS_20,
     padding: appPaddings.PADDING_8,
   },
-  content: {marginBottom: appMargins.MARGIN_16},
+  dateTimeContainer: {
+    flexDirection: 'row',
+  },
   infoRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -51,25 +52,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu-Medium',
     marginLeft: appMargins.MARGIN_8,
     color: appColor.APP_GREY,
-  },
-  viewAllButton: {
-    backgroundColor: appColor.BUTTON_SECONDARY_COLOR,
-    padding: appPaddings.PADDING_10,
-    borderRadius: appRadius.RADIUS_5,
-    alignItems: 'center',
-  },
-  viewAllButtonContainer: {
-    alignItems: 'flex-start',
-  },
-  viewAllText: {
-    color: appColor.WHITE,
-    fontWeight: appFontWeight.FONT_WEIGHT_400,
-    fontSize: appFontSize.FONT_14,
-    fontFamily: 'Ubuntu-Medium',
-  },
-  dateTimeContainer: {
-    flexDirection: 'row',
-    marginVertical: appMargins.MARGIN_16,
   },
 });
 

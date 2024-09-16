@@ -14,9 +14,9 @@ import {dashboardStatsRequest} from '../../slice';
 
 const DashboardScreen = () => {
   const dispatch = useAppDispatch();
-  // useEffect(() => {
-  //   dispatch(dashboardStatsRequest());
-  // }, []);
+  useEffect(() => {
+    dispatch(dashboardStatsRequest());
+  }, []);
   return (
     <ImageView>
       <View style={styles.wrapper}>

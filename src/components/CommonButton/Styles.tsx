@@ -1,5 +1,5 @@
 import appColor from '@/constants/Colors';
-import {appFontSize} from '@/constants/Fonts';
+import {appFontSize, appFontWeight} from '@/constants/Fonts';
 import {
   actuatedNormalize,
   actuatedNormalizeVertical,
@@ -9,14 +9,15 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    paddingVertical: actuatedNormalizeVertical(appPaddings.PADDING_10),
+    paddingVertical: actuatedNormalizeVertical(appPaddings.PADDING_14),
     borderRadius: appRadius.RADIUS_10,
   },
   buttonText: {
     color: appColor.WHITE,
     textAlign: 'center',
-    fontSize: actuatedNormalize(appFontSize.FONT_15),
-    fontFamily: 'Inter-Regular',
+    fontWeight: appFontWeight.FONT_WEIGHT_500,
+    fontSize: actuatedNormalize(appFontSize.FONT_14),
+    fontFamily: 'Ubuntu-Medium',
   },
 });
 export default styles;

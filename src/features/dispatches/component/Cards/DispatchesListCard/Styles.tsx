@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   pickupDot: {
-    backgroundColor: appColor.BUTTON_COLOR,
+    backgroundColor: appColor.BUTTON_SECONDARY_COLOR,
   },
   destinationDot: {
     backgroundColor: 'transparent',

@@ -100,6 +100,7 @@ const appWidthAndHeight = {
   APP_WIDTH_250: 250,
 
   APP_HEIGHT_4: 4,
+  APP_HEIGHT_2: 2,
   APP_HEIGHT_8: 8,
   APP_HEIGHT_10: 10,
   APP_HEIGHT_12: 12,
