@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
     marginLeft: appMargins.MARGIN_8,
     color: appColor.APP_GREY,
   },
+  docDescription: {
+    fontSize: appFontSize.FONT_14,
+    fontWeight: appFontWeight.FONT_WEIGHT_400,
+    marginLeft: appMargins.MARGIN_8,
+    color: appColor.APP_GREY,
+  },
 });
 
 export default styles;

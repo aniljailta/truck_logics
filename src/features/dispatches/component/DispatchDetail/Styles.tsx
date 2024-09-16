@@ -16,6 +16,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: appPaddings.PADDING_24,
     paddingVertical: appPaddings.PADDING_16,
   },
+  container: {
+    flex: 1,
+    gap: appGap.gap_16,
+    paddingHorizontal: appPaddings.PADDING_24,
+    paddingVertical: appPaddings.PADDING_16,
+  },
   currentTripText: {
     fontSize: appFontSize.FONT_22,
     color: appColor.BLACK,

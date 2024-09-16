@@ -3,14 +3,12 @@ import CheckCallCard from '../../Cards/CheckCallCard/CheckCallCard';
 import DispatchDetailCard from '../../Cards/DispatchDetailCard/DispatchDetailCard';
 import DispatchesListCard from '../../Cards/DispatchesListCard/DispatchesListCard';
 import NotesCard from '../../Cards/NotesCard/NotesMainCard';
+import styles from './Styles';
 
 const SummaryScreen = () => {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
-      <View
-        style={{
-          gap: 20,
-        }}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
+      <View style={styles.container}>
         <DispatchesListCard
           isDetailScreen={true}
           dispatchNumber="DN12345"

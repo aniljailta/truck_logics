@@ -9,9 +9,11 @@ import CustomDropdown from '@/components/CommonDropDown/CommonDropDown';
 const Header = ({
   isDashboard,
   isDispatchesList,
+  headerText,
 }: {
   isDashboard?: boolean;
   isDispatchesList?: boolean;
+  headerText: string;
 }) => {
   const options = [
     {label: 'Option 1', value: '1'},
@@ -44,13 +46,16 @@ const Header = ({
         </View>
       ) : (
         <View style={styles.headerRow}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.goBack();
-            }}>
-            <ArrowBack />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>DIS-10044</Text>
+          {headerText != 'History' && (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}>
+              <ArrowBack />
+            </TouchableOpacity>
+          )}
+
+          <Text style={styles.headerText}>{headerText}</Text>
         </View>
       )}
       <NotificationIcon />

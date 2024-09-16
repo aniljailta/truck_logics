@@ -4,36 +4,32 @@ import CheckCallsListCard from '../../Cards/CheckCallsAndDocsListCard/CheckCalls
 import styles from './Styles';
 import {appMargins} from '@/constants/Styles';
 
-const CheckAllCallsScreen = () => {
+const NotesListScreen = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
       <View style={styles.container}>
         <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
+          docName="Document Name"
+          docDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+          isDoc={true}
         />
         <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
+          docName="Document Name"
+          docDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+          isDoc={true}
         />
         <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
+          docName="Document Name"
+          docDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+          isDoc={true}
         />
-        <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
-        />
+
         <View
           style={{
             marginTop: appMargins.MARGIN_50,
           }}>
           <CommonButton
-            title={'Add Check Calls'}
+            title={'Upload Document'}
             onPress={() => {}}
             isLoading={false}
           />
@@ -42,4 +38,4 @@ const CheckAllCallsScreen = () => {
     </ScrollView>
   );
 };
-export default CheckAllCallsScreen;
+export default NotesListScreen;

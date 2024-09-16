@@ -7,13 +7,14 @@ import {appFontSize, appFontWeight} from '@/constants/Fonts';
 import {appPaddings} from '@/constants/Styles';
 import DashboardScreen from '@/features/dashboard/components/DashboardScreen/DashboardScreen';
 import DispatchesScreen from '@/features/dispatches/component/DispatchList/DispatchesScreen';
+import HistoryScreen from '@/features/History/HistoryScreen';
 import SupportScreen from '@/features/support/components/SupportScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 type TabStackParamList = {
   Dashboard: undefined;
   Dispatches: undefined;
-  Documents: undefined;
+  History: undefined;
   Support: undefined;
 };
 
@@ -38,7 +39,7 @@ const TabStack = () => {
           fontWeight: appFontWeight.FONT_WEIGHT_500,
           textAlignVertical: 'center',
         },
-        tabBarActiveTintColor: appColor.ACTIVE_TAB_COLOR,
+        tabBarActiveTintColor: appColor.BUTTON_PRIMARY_COLOR,
         tabBarInactiveTintColor: appColor.IN_ACTIVE_TAB_COLOR,
       }}>
       <Tab.Screen
@@ -50,7 +51,7 @@ const TabStack = () => {
             <DashboardIcon
               fill={
                 focused
-                  ? appColor.ACTIVE_TAB_COLOR
+                  ? appColor.BUTTON_PRIMARY_COLOR
                   : appColor.IN_ACTIVE_TAB_COLOR
               }
             />
@@ -68,7 +69,7 @@ const TabStack = () => {
               width={24}
               fill={
                 focused
-                  ? appColor.ACTIVE_TAB_COLOR
+                  ? appColor.BUTTON_PRIMARY_COLOR
                   : appColor.IN_ACTIVE_TAB_COLOR
               }
             />
@@ -76,15 +77,15 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Documents"
-        component={DispatchesScreen}
+        name="History"
+        component={HistoryScreen}
         options={{
-          tabBarLabel: 'Documents',
+          tabBarLabel: 'History',
           tabBarIcon: ({focused}) => (
             <DocumentIcon
               fill={
                 focused
-                  ? appColor.ACTIVE_TAB_COLOR
+                  ? appColor.BUTTON_PRIMARY_COLOR
                   : appColor.IN_ACTIVE_TAB_COLOR
               }
             />
@@ -100,7 +101,7 @@ const TabStack = () => {
             <SupportIcon
               fill={
                 focused
-                  ? appColor.ACTIVE_TAB_COLOR
+                  ? appColor.BUTTON_PRIMARY_COLOR
                   : appColor.IN_ACTIVE_TAB_COLOR
               }
             />

@@ -5,7 +5,7 @@ import AddIcon from '@/assets/svg/AddIcon';
 import DispatchDetailNotesIcon from '@/assets/svg/DispatchDetailNotesIcon';
 import NotesSubCard from './NotesSubCard';
 
-const noteDetailsSubheading = () => {
+const NotesCard = () => {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
@@ -23,4 +23,4 @@ const noteDetailsSubheading = () => {
   );
 };
 
-export default noteDetailsSubheading;
+export default NotesCard;

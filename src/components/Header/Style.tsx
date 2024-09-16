@@ -1,6 +1,11 @@
 import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
-import {appGap, appRadius, appWidthAndHeight} from '@/constants/Styles';
+import {
+  appGap,
+  appMargins,
+  appRadius,
+  appWidthAndHeight,
+} from '@/constants/Styles';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -41,6 +46,7 @@ const styles = StyleSheet.create({
     fontSize: appFontSize.FONT_18,
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     color: appColor.BLACK,
+    marginLeft: appMargins.MARGIN_4,
     fontFamily: 'Ubuntu-Medium',
   },
 });

@@ -3,7 +3,7 @@ import Svg, {Path} from 'react-native-svg';
 
 function EditNotes() {
   return (
-    <Svg width={12} height={12} viewBox="0 0 12 12" fill="none">
+    <Svg width={14} height={14} viewBox="0 0 12 12" fill="none">
       <Path
         d="M9.75 6a.375.375 0 11.75 0v4.125a.375.375 0 01-.375.375h-8.25a.375.375 0 01-.375-.375v-8.25a.375.375 0 01.375-.375H6a.375.375 0 010 .75H2.25v7.5h7.5V6z"
         fill="#fff"
