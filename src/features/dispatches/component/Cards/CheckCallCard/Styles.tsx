@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: appMargins.MARGIN_16,
+    marginBottom: appMargins.MARGIN_12,
   },
   titleContainer: {flexDirection: 'row', alignItems: 'center'},
   title: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   infoRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: appMargins.MARGIN_8,
+    marginBottom: appMargins.MARGIN_2,
   },
   infoText: {
     fontSize: appFontSize.FONT_14,

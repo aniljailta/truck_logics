@@ -13,7 +13,6 @@ function* getDispatchStats(): Generator<any, void, any> {
     try {
       const data: DispatchStats = yield call(dispatchStatsApi);
       yield put(dashboardStatsSuccess(data));
-      console.log(data);
     } catch (error: any) {
       yield put(dashboardStatsFailure(error.message || 'Unknown error'));
     }

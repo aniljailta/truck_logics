@@ -55,6 +55,7 @@ const registeredCompetitionItemSeparatorGap = {
   gap: 16,
 };
 const appMargins = {
+  MARGIN_2: 2,
   MARGIN_4: 4,
   MARGIN_5: 5,
   MARGIN_6: 6,

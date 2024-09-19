@@ -7,6 +7,7 @@ import TimeIcon from '@/assets/svg/TimeIcon';
 import ForwardArrow from '@/assets/svg/ForwardArrow';
 import {appMargins} from '@/constants/Styles';
 import styles from './Styles';
+import {getStatusBadgeColor, getStatusTextColor} from '@/helpers/utility';
 
 interface LocationInfo {
   location: string;
@@ -21,23 +22,8 @@ interface StatusColors {
   };
 }
 
-const statusColors: StatusColors = {
-  'In Progress': {
-    backgroundColor: '#DEFFEB',
-    textColor: '#3ABF24',
-  },
-  Completed: {
-    backgroundColor: '#E6F7FF',
-    textColor: '#1890FF',
-  },
-  Cancelled: {
-    backgroundColor: '#FFF1F0',
-    textColor: '#FF4D4F',
-  },
-};
-
 interface DispatchesListCardProps {
-  dispatchNumber: string;
+  dispatchNumber: number;
   status: string;
   pickup: LocationInfo;
   delivery: LocationInfo;
@@ -45,12 +31,12 @@ interface DispatchesListCardProps {
 }
 
 const StatusBadge: React.FC<{status: string}> = ({status}) => {
-  const colors = statusColors[status] || statusColors['In Progress'];
+  const statusTextColor = getStatusTextColor(status);
+  const statusBadgeColor = getStatusBadgeColor(status);
 
   return (
-    <View
-      style={[styles.statusBadge, {backgroundColor: colors.backgroundColor}]}>
-      <Text style={[styles.statusText, {color: colors.textColor}]}>
+    <View style={[styles.statusBadge, {backgroundColor: statusBadgeColor}]}>
+      <Text style={[styles.statusText, {color: statusTextColor}]}>
         {status}
       </Text>
     </View>
@@ -126,7 +112,7 @@ const DispatchesListCard: React.FC<DispatchesListCardProps> = ({
               style={styles.dispatchIcon}
               source={require('@/assets/images/dispatchNumberIcon.png')}
             />
-            <Text style={styles.dispatchNumberText}>{dispatchNumber}</Text>
+            <Text style={styles.dispatchNumberText}>DIS-{dispatchNumber}</Text>
           </View>
           <StatusBadge status={status} />
         </View>

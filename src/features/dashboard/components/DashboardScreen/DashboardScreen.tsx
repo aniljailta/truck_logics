@@ -25,13 +25,13 @@ const DashboardScreen = () => {
       <View style={styles.dispatchesRow}>
         <DispatchCard
           title="Pickup"
-          count={dispatchStats?.assigned}
+          count={dispatchStats?.stats.assigned}
           color={appColor.PICKUP_ORDER_COLOR}
           icon={<DashboardPickupIcon />}
         />
         <DispatchCard
           title="Deliver"
-          count={dispatchStats?.delivered}
+          count={dispatchStats?.stats.delivered}
           color={appColor.DELIVER_ORDER_COLOR}
           icon={<DashboardDeliverIcon />}
         />
@@ -39,13 +39,13 @@ const DashboardScreen = () => {
       <View style={styles.dispatchesRow}>
         <DispatchCard
           title="Active"
-          count={dispatchStats?.active}
+          count={dispatchStats?.stats.active}
           color={appColor.ACTIVE_ORDER_COLOR}
           icon={<DashboardActiveIcon />}
         />
         <DispatchCard
           title="Awaiting"
-          count={dispatchStats?.unassigned}
+          count={dispatchStats?.stats.unassigned}
           color={appColor.APP_ORANGE_COLOR}
           icon={<DashboardWaitingIcon />}
         />

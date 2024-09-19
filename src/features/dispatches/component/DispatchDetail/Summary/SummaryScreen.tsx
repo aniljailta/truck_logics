@@ -11,7 +11,7 @@ const SummaryScreen = () => {
       <View style={styles.container}>
         <DispatchesListCard
           isDetailScreen={true}
-          dispatchNumber="DN12345"
+          dispatchNumber={223}
           status="In Transit"
           pickup={{
             location: 'New York, NY',

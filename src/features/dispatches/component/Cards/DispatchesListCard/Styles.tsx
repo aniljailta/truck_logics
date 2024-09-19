@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     fontWeight: appFontWeight.FONT_WEIGHT_500,
     color: appColor.BLACK,
     fontFamily: 'Ubuntu-Medium',
+    marginLeft: appMargins.MARGIN_6,
   },
   statusBadge: {
     borderRadius: appRadius.RADIUS_20,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     fontSize: appFontSize.FONT_14,
     fontWeight: appFontWeight.FONT_WEIGHT_400,
     fontFamily: 'Ubuntu-Medium',
+    textTransform: 'capitalize',
   },
   contentContainer: {
     flexDirection: 'row',

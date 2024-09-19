@@ -10,6 +10,7 @@ import DispatchesScreen from '@/features/dispatches/component/DispatchList/Dispa
 import HistoryScreen from '@/features/History/component/HistoryScreen';
 import SupportScreen from '@/features/support/components/SupportScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import DispatchStack from './dispatch/DispatchStack';
 
 type TabStackParamList = {
   Dashboard: undefined;
@@ -60,7 +61,7 @@ const TabStack = () => {
       />
       <Tab.Screen
         name="Dispatches"
-        component={DispatchesScreen}
+        component={DispatchStack}
         options={{
           tabBarLabel: 'Dispatches',
           tabBarIcon: ({focused}) => (
