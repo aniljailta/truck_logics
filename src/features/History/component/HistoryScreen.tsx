@@ -3,8 +3,8 @@ import React from 'react';
 import ImageView from '@/components/ImageView/ImageView';
 import Header from '@/components/Header/Header';
 import {useAppNavigation} from '@/hooks/ReduxHooks';
-import DispatchesListCard from '../dispatches/component/Cards/DispatchesListCard/DispatchesListCard';
 import styles from './Styles';
+import DispatchesListCard from '@/features/dispatches/component/Cards/DispatchesListCard/DispatchesListCard';
 
 const HistoryScreen = () => {
   const navigation = useAppNavigation();

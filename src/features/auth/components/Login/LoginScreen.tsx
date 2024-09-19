@@ -35,7 +35,7 @@ const LoginScreen = () => {
       // email: 'rtanvi79@gmail.com',
       // password: 'password',
       email: 'rtanvi79@gmail.com',
-      password: 'password',
+      password: 'Shipping123',
     },
   });
 

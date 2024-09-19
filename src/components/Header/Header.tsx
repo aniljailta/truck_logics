@@ -21,9 +21,7 @@ const Header = ({
     {label: 'Option 3', value: '3'},
   ];
 
-  const handleSelect = (item: {label: string; value: string}) => {
-    console.log(item);
-  };
+  const handleSelect = (item: {label: string; value: string}) => {};
 
   const {user} = useAppSelector(state => state.auth);
   const navigation = useAppNavigation();

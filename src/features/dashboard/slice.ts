@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import {DispatchStats} from './type';
 
 interface initialStateProps {
@@ -22,6 +22,7 @@ export const dashboard = createSlice({
     dashboardStatsSuccess: (state, action) => {
       state.isFetching = false;
       state.error = null;
+      state.dispatchStats = action.payload;
     },
     dashboardStatsFailure: (state, action) => {
       state.isFetching = false;

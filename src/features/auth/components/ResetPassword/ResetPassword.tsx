@@ -33,9 +33,7 @@ const ResetPassword = () => {
     },
   });
 
-  const onReset = (formData: ResetPasswordFormData) => {
-    console.log('form data', formData);
-  };
+  const onReset = (formData: ResetPasswordFormData) => {};
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView style={{flex: 1}} behavior={keyboardScroller}>

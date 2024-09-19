@@ -5,14 +5,15 @@ import {
   dashboardStatsSuccess,
 } from './slice';
 import {dispatchStatsApi} from './api';
+import {DispatchStats} from './type';
 
 function* getDispatchStats(): Generator<any, void, any> {
   while (true) {
     yield take(dashboardStatsRequest.type);
-
     try {
-      const response = yield call(dispatchStatsApi);
-      yield put(dashboardStatsSuccess(response.data));
+      const data: DispatchStats = yield call(dispatchStatsApi);
+      yield put(dashboardStatsSuccess(data));
+      console.log(data);
     } catch (error: any) {
       yield put(dashboardStatsFailure(error.message || 'Unknown error'));
     }
