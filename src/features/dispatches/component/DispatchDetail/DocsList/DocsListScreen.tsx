@@ -1,39 +1,29 @@
 import React, {useState} from 'react';
-import {ScrollView, View, Alert} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Alert,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import CommonButton from '@/components/CommonButton/CommonButton';
 import CheckCallsListCard from '../../Cards/CheckCallsAndDocsListCard/CheckCallsAndDocsListCard';
 import styles from './Styles';
 import {appMargins} from '@/constants/Styles';
 import UploadDocumentDialog from './UploadDoc/UploadDocDialog';
+import {useAppSelector} from '@/hooks/ReduxHooks';
 
 const DocsListScreen = () => {
   const [isDialogVisible, setIsDialogVisible] = useState(false);
-  const [documents, setDocuments] = useState([
-    {
-      docName: 'Document Name',
-      docDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      docName: 'Document Name',
-      docDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      docName: 'Document Name',
-      docDescription:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-  ]);
 
   const handleOpenDialog = () => setIsDialogVisible(true);
   const handleCloseDialog = () => setIsDialogVisible(false);
 
   const handleUploadSuccess = (fileName: string, description: string) => {
-    setDocuments(prevDocs => [
-      ...prevDocs,
-      {docName: fileName, docDescription: description},
-    ]);
+    // setDocuments(prevDocs => [
+    //   ...prevDocs,
+    //   {docName: fileName, docDescription: description},
+    // ]);
     Alert.alert('Success', `${fileName} uploaded successfully!`);
   };
 
@@ -41,18 +31,28 @@ const DocsListScreen = () => {
     console.error('Upload failed:', error);
     Alert.alert('Error', 'Upload failed. Please try again.');
   };
-
+  const {dispatchesDetail, isFetching} = useAppSelector(
+    state => state.dispatch,
+  );
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
+    <>
       <View style={styles.container}>
-        {documents.map((doc, index) => (
-          <CheckCallsListCard
-            key={index}
-            docName={doc.docName}
-            docDescription={doc.docDescription}
-            isDoc={true}
-          />
-        ))}
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={dispatchesDetail?.assets}
+          keyExtractor={(item, index) => `${item.id}-${index}`}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity onPress={() => {}}>
+                <CheckCallsListCard
+                  docName={item.name}
+                  docDescription={item.desc}
+                  isDoc={true}
+                />
+              </TouchableOpacity>
+            );
+          }}
+        />
 
         <View style={{marginTop: appMargins.MARGIN_50}}>
           <CommonButton
@@ -62,14 +62,13 @@ const DocsListScreen = () => {
           />
         </View>
       </View>
-
       <UploadDocumentDialog
         isVisible={isDialogVisible}
         onClose={handleCloseDialog}
         onUploadSuccess={handleUploadSuccess}
         onUploadError={handleUploadError}
       />
-    </ScrollView>
+    </>
   );
 };
 

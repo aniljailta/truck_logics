@@ -30,16 +30,16 @@ export const dispatch = createSlice({
       state.isFetching = false;
       state.error = action.payload;
     },
-    dispatchByIdRequest: (state, action) => {
+    dispatchDetailByIdRequest: (state, action) => {
       state.isFetching = true;
       state.error = null;
     },
-    dispatchByIdSuccess: (state, action) => {
+    dispatchDetailByIdSuccess: (state, action) => {
       state.isFetching = false;
       state.error = null;
-      state.dispatchesDetail = action.payload;
+      state.dispatchesDetail = action.payload.data;
     },
-    dispatchByIdFailure: (state, action) => {
+    dispatchDetailByIdFailure: (state, action) => {
       state.isFetching = false;
       state.error = action.payload;
     },
@@ -50,9 +50,9 @@ export const {
   dispatchListRequest,
   dispatchListSuccess,
   dispatchListFailure,
-  dispatchByIdRequest,
-  dispatchByIdSuccess,
-  dispatchByIdFailure,
+  dispatchDetailByIdRequest,
+  dispatchDetailByIdSuccess,
+  dispatchDetailByIdFailure,
 } = dispatch.actions;
 
 export default dispatch.reducer;

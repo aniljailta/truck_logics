@@ -9,8 +9,8 @@ import SummaryScreen from './Summary/SummaryScreen';
 import CheckAllCallsScreen from './CheckCallsList/CheckAllCallsScreen';
 import DocsListScreen from './DocsList/DocsListScreen';
 import NotesListScreen from './NotesList/NotesListScreen';
-import {useAppDispatch} from '@/hooks/ReduxHooks';
-import {dispatchByIdRequest} from '../../slice';
+import {useAppDispatch, useAppSelector} from '@/hooks/ReduxHooks';
+import {dispatchDetailByIdRequest} from '../../slice';
 import {DispatchStackParamList} from '@/navigation/dispatch/DispatchStack';
 
 type DispatchDetailScreenRouteProp = RouteProp<
@@ -25,13 +25,11 @@ type Props = {
 const DispatchDetailScreen: React.FC<Props> = ({route}) => {
   const {id} = route.params;
   const dispatch = useAppDispatch();
-
   useEffect(() => {
-    dispatch(dispatchByIdRequest(id));
+    dispatch(dispatchDetailByIdRequest(id));
   }, [dispatch, id]);
 
   const [activeTab, setActiveTab] = useState('summary');
-
   const renderScreen = () => {
     switch (activeTab) {
       case 'summary':

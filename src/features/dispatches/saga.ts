@@ -1,5 +1,8 @@
 import {call, fork, put, take} from 'redux-saga/effects';
 import {
+  dispatchDetailByIdFailure,
+  dispatchDetailByIdRequest,
+  dispatchDetailByIdSuccess,
   dispatchListFailure,
   dispatchListRequest,
   dispatchListSuccess,
@@ -20,12 +23,12 @@ function* getDispatchesList(): Generator<any, void, any> {
 }
 function* getDispatchById(): Generator<any, void, any> {
   while (true) {
-    const {payload: id} = yield take(dispatchListRequest.type);
+    const {payload: id} = yield take(dispatchDetailByIdRequest.type);
     try {
       const data: Dispatch = yield call(dispatchesByIdApi, id);
-      yield put(dispatchListSuccess(data));
+      yield put(dispatchDetailByIdSuccess(data));
     } catch (error: any) {
-      yield put(dispatchListFailure(error.message || 'Unknown error'));
+      yield put(dispatchDetailByIdFailure(error.message || 'Unknown error'));
     }
   }
 }

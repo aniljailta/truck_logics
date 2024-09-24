@@ -1,13 +1,26 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './Styles';
+interface NotesSubCardProps {
+  body: string;
+  createdAt: string;
+  createdBy: string;
+  completedAt: string;
+  completedBy: string;
+  assignedTo: string;
+}
 
-const NotesSubCard = () => {
+const NotesSubCard: React.FC<NotesSubCardProps> = ({
+  body,
+  createdAt,
+  createdBy,
+  completedAt,
+  completedBy,
+  assignedTo,
+}) => {
   return (
     <>
-      <Text style={styles.noteDetailHeading}>
-        $317.07 SAIA QUOTED Quote #349186924
-      </Text>
+      <Text style={styles.noteDetailHeading}>{body}</Text>
       <Text style={styles.noteDetailsSubheading}>
         Created 08/02 06:44 am (Local Time) by Evangeline Mendoza
       </Text>

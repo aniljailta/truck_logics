@@ -21,6 +21,8 @@ export type Dispatch = {
   pickup_address: Address;
   drop_address: Address;
   ftl_statuses: FtlStatus[];
+  assets: Assets[];
+  notes: Notes[];
 };
 interface Driver {
   id: number;
@@ -107,4 +109,35 @@ export type FtlStatus = {
   created_at: null;
   updated_at: null;
   deleted_at: null;
+};
+export type Assets = {
+  id: number;
+  ftl_dispatch_id: number;
+  file_type: string;
+  name: string;
+  storage_token: string;
+  desc: string;
+  uploaded_by: number;
+  created_at: string;
+  updated_at: string;
+  deleted_at: null;
+  download_url: string;
+  stream_url: string;
+};
+export type Notes = {
+  id: number;
+  created_by: string;
+  assigned_to: number;
+  completed_at: null;
+  completed_by: null;
+  noteable_id: number;
+  noteable_type: string;
+  type: string;
+  body: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: null;
+  follow_up_at: string;
+  follow_up_task_id: string;
+  follow_up_email_id: string;
 };

@@ -10,7 +10,6 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './Styles';
 import DocumentNameIcon from '@/assets/svg/DocumentNameIcon';
 import ViewDocIcon from '@/assets/svg/ViewDocIcon';
-import {appFontSize, appFontWeight} from '@/constants/Fonts';
 interface CheckCallsAndDocsListCardProps {
   status?: string;
   date?: string;
