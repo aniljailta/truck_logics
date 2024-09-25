@@ -7,19 +7,24 @@ import {appMargins} from '@/constants/Styles';
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import styles from './Styles';
+import { useAppSelector } from '@/hooks/ReduxHooks';
+import { formatDateTime } from '@/helpers/utility';
 
 const DispatchDetailCard = () => {
+  const { dispatchesDetail } = useAppSelector(
+    state => state.dispatch,
+  );
   return (
     <View style={styles.card}>
       <Text style={styles.headingText}>Dispatch Details</Text>
       <View style={styles.dateTimeContainer}>
         <View style={styles.infoRow}>
           <DateIcon />
-          <Text style={styles.infoText}>05/29/2024</Text>
+          {dispatchesDetail && <Text style={styles.infoText}>{formatDateTime(dispatchesDetail?.start_date).formattedDate}</Text> }
         </View>
         <View style={[styles.infoRow, {marginLeft: appMargins.MARGIN_20}]}>
           <TimeIcon />
-          <Text style={styles.infoText}>14:25 am</Text>
+          { dispatchesDetail && <Text style={styles.infoText}>{formatDateTime(dispatchesDetail?.start_date).formattedTime}</Text> }
         </View>
       </View>
 
@@ -30,11 +35,11 @@ const DispatchDetailCard = () => {
             height={20}
             width={20}
           />
-          <Text style={styles.infoText}>Truck number (45EH8578)</Text>
+          <Text style={styles.infoText}>Truck number ({dispatchesDetail?.truck_number})</Text>
         </View>
         <View style={styles.infoRow}>
           <CallGreyIcon />
-          <Text style={styles.infoText}>Trailer number (45EH8578)</Text>
+          <Text style={styles.infoText}>Trailer number ({dispatchesDetail?.trailer_number})</Text>
         </View>
       </View>
       <Image

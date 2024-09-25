@@ -36,7 +36,7 @@ const DispatchesScreen = () => {
             const deliveryDateTime = formatDateTime(
               item.ftl_statuses[0].date_and_time,
             );
-
+            
             return (
               <TouchableOpacity
                 onPress={() => {

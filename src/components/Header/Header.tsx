@@ -6,15 +6,16 @@ import NotificationIcon from '@/assets/svg/NotificationIcon';
 import ArrowBack from '@/assets/svg/ArrowBack';
 import CustomDropdown from '@/components/CommonDropDown/CommonDropDown';
 
-const Header = ({
-  isDashboard,
-  isDispatchesList,
-  headerText,
-}: {
+type HeaderProps = {
   isDashboard?: boolean;
   isDispatchesList?: boolean;
   headerText: string;
-}) => {
+}
+const Header = ({
+  isDashboard = false,
+  isDispatchesList = false,
+  headerText,
+}: HeaderProps) => {
   const options = [
     {label: 'Option 1', value: '1'},
     {label: 'Option 2', value: '2'},
@@ -40,14 +41,16 @@ const Header = ({
         </View>
       ) : isDispatchesList ? (
         <View style={styles.headerRow}>
-          <CustomDropdown options={options} onSelect={handleSelect} />
+          <CustomDropdown options={options} onSelect={()=>{}} />
         </View>
       ) : (
         <View style={styles.headerRow}>
-          {headerText != 'History' && (
+          {headerText !== 'History' && (
             <TouchableOpacity
               onPress={() => {
-                navigation.goBack();
+                if(navigation.canGoBack()){
+                  navigation.goBack();
+                }
               }}>
               <ArrowBack />
             </TouchableOpacity>

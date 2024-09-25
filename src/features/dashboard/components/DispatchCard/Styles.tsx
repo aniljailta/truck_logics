@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: appWidthAndHeight.APP_WIDTH_180,
     height: appWidthAndHeight.APP_HEIGHT_140,
+    flex: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
     gap: appGap.gap_8,

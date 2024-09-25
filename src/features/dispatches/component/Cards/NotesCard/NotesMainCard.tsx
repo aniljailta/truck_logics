@@ -7,7 +7,7 @@ import NotesSubCard from './NotesSubCard';
 import {useAppSelector} from '@/hooks/ReduxHooks';
 
 const NotesCard = () => {
-  const {dispatchesDetail, isFetching} = useAppSelector(
+  const {dispatchesDetail} = useAppSelector(
     state => state.dispatch,
   );
   return (
@@ -26,12 +26,12 @@ const NotesCard = () => {
         dispatchesDetail.notes.map((item, index) => (
           <TouchableOpacity key={`${item.id}-${index}`} onPress={() => {}}>
             <NotesSubCard
-              assignedTo=""
+              assignedTo={item.assignee.name}
               body={item.body}
-              createdAt={item.created_at}
-              createdBy={item.created_by}
+              createdAt={item.creator.created_at}
+              createdBy={item.creator.name}
               completedAt={item.completed_at ?? ''}
-              completedBy={item.completed_by ?? ''}
+              completedBy={item.completor.name}
             />
           </TouchableOpacity>
         ))}

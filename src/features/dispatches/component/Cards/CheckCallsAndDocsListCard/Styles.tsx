@@ -32,11 +32,12 @@ const styles = StyleSheet.create({
     color: appColor.BUTTON_SECONDARY_COLOR,
     fontFamily: 'Ubuntu-Medium',
     marginLeft: appMargins.MARGIN_8,
+    flex: 0.8,
   },
   iconContainer: {
-    marginHorizontal: appMargins.MARGIN_5,
+    marginHorizontal: appMargins.MARGIN_4,
     borderRadius: appRadius.RADIUS_20,
-    padding: appPaddings.PADDING_8,
+    padding: 6,
   },
   dateTimeContainer: {
     flexDirection: 'row',

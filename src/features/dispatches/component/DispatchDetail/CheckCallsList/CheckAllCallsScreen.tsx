@@ -3,31 +3,27 @@ import {ScrollView, View} from 'react-native';
 import CheckCallsListCard from '../../Cards/CheckCallsAndDocsListCard/CheckCallsAndDocsListCard';
 import styles from './Styles';
 import {appMargins} from '@/constants/Styles';
+import { useAppSelector } from '@/hooks/ReduxHooks';
+import { formatDateTime } from '@/helpers/utility';
 
 const CheckAllCallsScreen = () => {
+  const { dispatchesDetail } = useAppSelector(
+    state => state.dispatch,
+  );
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
       <View style={styles.container}>
-        <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
-        />
-        <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
-        />
-        <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
-        />
-        <CheckCallsListCard
-          date="07/08/2024"
-          time="10:22 AM"
-          status="Starting Trip"
-        />
+        {
+          dispatchesDetail?.ftl_statuses.map((item) => (
+            <CheckCallsListCard
+            key={item.id}
+            date={formatDateTime(item.date_and_time).formattedDate}
+            time={formatDateTime(item.date_and_time).formattedTime}
+            status={item.status}
+          />
+          ))
+         
+        }
         <View
           style={{
             marginTop: appMargins.MARGIN_50,

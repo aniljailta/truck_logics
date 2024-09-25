@@ -6,11 +6,11 @@ import appColor from '@/constants/Colors';
 import {appFontSize, appFontWeight} from '@/constants/Fonts';
 import {appPaddings} from '@/constants/Styles';
 import DashboardScreen from '@/features/dashboard/components/DashboardScreen/DashboardScreen';
-import DispatchesScreen from '@/features/dispatches/component/DispatchList/DispatchesScreen';
 import HistoryScreen from '@/features/History/component/HistoryScreen';
 import SupportScreen from '@/features/support/components/SupportScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import DispatchStack from './dispatch/DispatchStack';
+import { Platform } from 'react-native';
 
 type TabStackParamList = {
   Dashboard: undefined;
@@ -30,7 +30,7 @@ const TabStack = () => {
         tabBarStyle: {
           height: 76,
           paddingVertical: appPaddings.PADDING_12,
-          paddingBottom: appPaddings.PADDING_14,
+          paddingBottom: Platform.OS === 'android' ? appPaddings.PADDING_14 : appPaddings.PADDING_20,
           justifyContent: 'center',
           alignContent: 'center',
           alignItems: 'center',

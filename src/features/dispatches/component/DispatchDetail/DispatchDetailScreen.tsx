@@ -41,7 +41,7 @@ const DispatchDetailScreen: React.FC<Props> = ({route}) => {
       case 'notes':
         return <NotesListScreen />;
       default:
-        return null;
+        return <></>;
     }
   };
 

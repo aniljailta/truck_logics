@@ -140,4 +140,31 @@ export type Notes = {
   follow_up_at: string;
   follow_up_task_id: string;
   follow_up_email_id: string;
+  creator: Creator;
+  assignee: Creator;
+  completor: Creator;
+
 };
+
+type Creator = {
+  id: number
+  name: string
+  email: string
+  api_token: string
+  created_at: string
+  updated_at: string
+  stripe_id: any
+  card_brand: any
+  card_last_four: any
+  trial_ends_at: any
+  org_id: number
+  default_timezone: string
+  roles: any
+  is_sales_rep: boolean
+  deleted_at: any
+  phone_no: any
+  account_no: any
+}
+
+
+

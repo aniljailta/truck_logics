@@ -15,7 +15,6 @@ import DispatchCard from '../DispatchCard/DispatchCard';
 const DashboardScreen = () => {
   const dispatch = useAppDispatch();
   const {dispatchStats, isFetching} = useAppSelector(state => state.dashboard);
-
   useEffect(() => {
     dispatch(dashboardStatsRequest());
   }, [dispatch]);

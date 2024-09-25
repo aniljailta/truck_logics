@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from './Styles';
+import { formatDateTime } from '@/helpers/utility';
 interface NotesSubCardProps {
   body: string;
   createdAt: string;
@@ -22,13 +23,13 @@ const NotesSubCard: React.FC<NotesSubCardProps> = ({
     <>
       <Text style={styles.noteDetailHeading}>{body}</Text>
       <Text style={styles.noteDetailsSubheading}>
-        Created 08/02 06:44 am (Local Time) by Evangeline Mendoza
+        Created {formatDateTime(createdAt).formattedDate}{' '}{formatDateTime(createdAt).formattedTime} (Local Time) by {createdBy}
       </Text>
       <Text style={styles.noteDetailHeading}>
-        Assigned To Evangeline Mendoza
+        Assigned To {assignedTo}
       </Text>
       <Text style={styles.noteDetailsSubheading}>
-        Completed 08/02 01:14 by Evangeline Mendoza
+        Completed 08/02 01:14 by {completedBy}
       </Text>
       <View style={styles.divider}></View>
     </>

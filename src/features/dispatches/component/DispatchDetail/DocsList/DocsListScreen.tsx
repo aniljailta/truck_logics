@@ -9,7 +9,7 @@ import {
 import CommonButton from '@/components/CommonButton/CommonButton';
 import CheckCallsListCard from '../../Cards/CheckCallsAndDocsListCard/CheckCallsAndDocsListCard';
 import styles from './Styles';
-import {appMargins} from '@/constants/Styles';
+import {appGap, appMargins} from '@/constants/Styles';
 import UploadDocumentDialog from './UploadDoc/UploadDocDialog';
 import {useAppSelector} from '@/hooks/ReduxHooks';
 
@@ -41,6 +41,7 @@ const DocsListScreen = () => {
           showsVerticalScrollIndicator={false}
           data={dispatchesDetail?.assets}
           keyExtractor={(item, index) => `${item.id}-${index}`}
+          ItemSeparatorComponent={() => <View style={{height: appGap.gap_20}} />}
           renderItem={({item}) => {
             return (
               <TouchableOpacity onPress={() => {}}>

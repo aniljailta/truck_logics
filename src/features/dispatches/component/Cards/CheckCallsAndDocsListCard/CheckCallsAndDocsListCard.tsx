@@ -10,8 +10,11 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './Styles';
 import DocumentNameIcon from '@/assets/svg/DocumentNameIcon';
 import ViewDocIcon from '@/assets/svg/ViewDocIcon';
+import { getStatusTextColor } from '@/helpers/utility';
+import TruckIcon from '@/assets/svg/TruckIcon';
+import PickupTruckIcon from '@/assets/svg/PickupTruckIcon';
 interface CheckCallsAndDocsListCardProps {
-  status?: string;
+  status: string;
   date?: string;
   time?: string;
   docName?: string;
@@ -34,11 +37,11 @@ const CheckCallsAndDocsListCard: React.FC<CheckCallsAndDocsListCardProps> = ({
     <View style={styles.card}>
       <View style={styles.header}>
         <View style={styles.titleContainer}>
-          {isDoc ? <DocumentNameIcon /> : <StartingTripIcon />}
+          {isDoc ? <DocumentNameIcon /> : status === 'starting_trip' ? <StartingTripIcon />:<PickupTruckIcon color={getStatusTextColor(status)}/>}
           {isDoc ? (
             <Text style={styles.title}>{docName}</Text>
           ) : (
-            <Text style={styles.title}>{status}</Text>
+            <Text style={[styles.title, {color: getStatusTextColor(status)}]}>{status}</Text>
           )}
         </View>
 

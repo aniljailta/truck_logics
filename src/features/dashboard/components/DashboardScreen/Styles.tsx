@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     height: appWidthAndHeight.APP_HEIGHT_220,
   },
   dispatchesColumn: {
-    flexDirection: 'column',
     gap: appGap.gap_20,
   },
   dispatchesRow: {
