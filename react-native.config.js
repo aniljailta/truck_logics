@@ -4,9 +4,9 @@ module.exports = {
     android: {
       watchModeCommandParams: [
         '--mode',
-        'developmentdebug',
+        'productiondebug',
         '--appId',
-        'com.trucklogics.development',
+        'com.trucklogics',
       ],
     },
   },

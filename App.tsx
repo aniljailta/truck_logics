@@ -8,7 +8,12 @@
 import store from '@/app/store';
 import MainStack from '@/navigation/MainStack';
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
+import {
+  checkNotificationPermission,
+  onAppBootstrap,
+  onForegroundMessage,
+} from './notification-service';
+import React, {useEffect} from 'react';
 import {StatusBar, useColorScheme} from 'react-native';
 import Toast from 'react-native-toast-message';
 
@@ -21,6 +26,20 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  useEffect(() => {
+    checkNotificationPermission().then(hasPermissions => {
+      if (hasPermissions) {
+        onAppBootstrap();
+      } else {
+        console.log('no notification permissions granted');
+      }
+    });
+    const unsubscribeForeground = onForegroundMessage();
+    return () => {
+      unsubscribeForeground();
+    };
+  }, []);
 
   return (
     <NavigationContainer>

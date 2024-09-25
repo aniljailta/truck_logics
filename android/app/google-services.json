@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "889382406327",
+    "project_id": "trend-app-d94a3",
+    "storage_bucket": "trend-app-d94a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889382406327:android:c56e69ce8c2180064b2532",
+        "android_client_info": {
+          "package_name": "com.trucklogics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiNeT08s5q3WxgNYLTSU0-mLZuPlQYY44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
