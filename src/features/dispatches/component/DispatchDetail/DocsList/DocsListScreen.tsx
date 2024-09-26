@@ -11,15 +11,27 @@ import CheckCallsListCard from '../../Cards/CheckCallsAndDocsListCard/CheckCalls
 import styles from './Styles';
 import {appGap, appMargins} from '@/constants/Styles';
 import UploadDocumentDialog from './UploadDoc/UploadDocDialog';
-import {useAppSelector} from '@/hooks/ReduxHooks';
+import {useAppDispatch, useAppSelector} from '@/hooks/ReduxHooks';
+import { uploadDocumentRequest } from '@/features/dispatches/slice';
 
 const DocsListScreen = () => {
   const [isDialogVisible, setIsDialogVisible] = useState(false);
+  const dispatch = useAppDispatch()
 
   const handleOpenDialog = () => setIsDialogVisible(true);
   const handleCloseDialog = () => setIsDialogVisible(false);
 
-  const handleUploadSuccess = (fileName: string, description: string) => {
+  const handleUploadSuccess = (fileName: string, description: string, fileUri: string, fileType: string | null) => {
+    console.log('file uri', fileName, description, fileUri);
+    const formData = new FormData();
+    formData.append('doc', {
+        uri: fileUri,
+        name: fileName,
+        type: fileType,
+        description: description
+    });
+    formData.append('ftl_dispatch_id', 40);
+    dispatch(uploadDocumentRequest(formData))
     // setDocuments(prevDocs => [
     //   ...prevDocs,
     //   {docName: fileName, docDescription: description},
@@ -31,7 +43,7 @@ const DocsListScreen = () => {
     console.error('Upload failed:', error);
     Alert.alert('Error', 'Upload failed. Please try again.');
   };
-  const {dispatchesDetail, isFetching} = useAppSelector(
+  const {dispatchesDetail, isUploading} = useAppSelector(
     state => state.dispatch,
   );
   return (
@@ -55,11 +67,11 @@ const DocsListScreen = () => {
           }}
         />
 
-        <View style={{marginTop: appMargins.MARGIN_50}}>
+        <View>
           <CommonButton
             title={'Upload Document'}
             onPress={handleOpenDialog}
-            isLoading={false}
+            isLoading={isUploading}
           />
         </View>
       </View>

@@ -5,6 +5,8 @@ import AddIcon from '@/assets/svg/AddIcon';
 import DispatchDetailNotesIcon from '@/assets/svg/DispatchDetailNotesIcon';
 import NotesSubCard from './NotesSubCard';
 import {useAppSelector} from '@/hooks/ReduxHooks';
+import NotesNotFound from '@/assets/svg/NotesNotFound';
+import { appGap } from '@/constants/Styles';
 
 const NotesCard = () => {
   const {dispatchesDetail} = useAppSelector(
@@ -17,12 +19,12 @@ const NotesCard = () => {
           <DispatchDetailNotesIcon />
           <Text style={styles.title}>Notes</Text>
         </View>
-        <TouchableOpacity style={styles.addButton} onPress={() => {}}>
+        {dispatchesDetail && dispatchesDetail?.notes.length && <TouchableOpacity style={styles.addButton} onPress={() => {}}>
           <AddIcon />
-        </TouchableOpacity>
+        </TouchableOpacity>}
       </View>
 
-      {dispatchesDetail?.notes &&
+      {dispatchesDetail && dispatchesDetail?.notes.length ?
         dispatchesDetail.notes.map((item, index) => (
           <TouchableOpacity key={`${item.id}-${index}`} onPress={() => {}}>
             <NotesSubCard
@@ -34,7 +36,13 @@ const NotesCard = () => {
               completedBy={item.completor.name}
             />
           </TouchableOpacity>
-        ))}
+        )): <View style={{justifyContent: 'center', alignItems: 'center', gap: appGap.gap_32}}>
+        <NotesNotFound/>
+        
+        <TouchableOpacity style={styles.addNotesButton} onPress={()=>{}}>
+          <Text style={styles.addNotesText}>Add Notes</Text>
+        </TouchableOpacity>
+        </View>}
     </View>
   );
 };

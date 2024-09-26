@@ -59,6 +59,18 @@ const styles = StyleSheet.create({
     width: '100%',
     marginVertical: appMargins.MARGIN_10,
   },
+  addNotesButton: {
+    backgroundColor: appColor.BUTTON_SECONDARY_COLOR,
+    padding: appPaddings.PADDING_10,
+    borderRadius: appRadius.RADIUS_5,
+    alignItems: 'center',
+  },
+  addNotesText: {
+    color: appColor.WHITE,
+    fontWeight: appFontWeight.FONT_WEIGHT_400,
+    fontSize: appFontSize.FONT_14,
+    fontFamily: 'Ubuntu-Medium',
+  }
 });
 
 export default styles;

@@ -14,7 +14,7 @@ import { getStatusTextColor } from '@/helpers/utility';
 import TruckIcon from '@/assets/svg/TruckIcon';
 import PickupTruckIcon from '@/assets/svg/PickupTruckIcon';
 interface CheckCallsAndDocsListCardProps {
-  status: string;
+  status?: string;
   date?: string;
   time?: string;
   docName?: string;
@@ -24,7 +24,7 @@ interface CheckCallsAndDocsListCardProps {
   onIcon2Press?: () => void;
 }
 const CheckCallsAndDocsListCard: React.FC<CheckCallsAndDocsListCardProps> = ({
-  status,
+  status = '',
   date,
   time,
   docName,

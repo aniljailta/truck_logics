@@ -6,8 +6,11 @@ import {
   dispatchListFailure,
   dispatchListRequest,
   dispatchListSuccess,
+  uploadDocumentFailure,
+  uploadDocumentRequest,
+  uploadDocumentSuccess,
 } from './slice';
-import {dispatchesByIdApi, dispatchesListApi} from './api';
+import {dispatchesByIdApi, dispatchesListApi, uploadDocumentsApi} from './api';
 import {Dispatch} from '@reduxjs/toolkit';
 
 function* getDispatchesList(): Generator<any, void, any> {
@@ -32,7 +35,21 @@ function* getDispatchById(): Generator<any, void, any> {
     }
   }
 }
+function* uploadDocumentSaga(): Generator<any, void, any> {
+  while (true) {
+    const {payload: formData} = yield take(uploadDocumentRequest.type);
+    console.log('form data', formData);
+    
+    try {
+      yield call(uploadDocumentsApi, formData);
+      yield put(uploadDocumentSuccess());
+    } catch (error: any) {
+      yield put(uploadDocumentFailure(error.message || 'Unknown error'));
+    }
+  }
+}
 export default function* dashboardSaga() {
   yield fork(getDispatchesList);
   yield fork(getDispatchById);
+  yield fork(uploadDocumentSaga)
 }

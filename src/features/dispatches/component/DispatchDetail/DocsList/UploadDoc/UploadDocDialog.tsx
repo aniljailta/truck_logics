@@ -1,14 +1,15 @@
 import AddIcon from '@/assets/svg/AddIcon';
 import CloseIcon from '@/assets/svg/CloseIcon';
 import appColor from '@/constants/Colors';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Modal, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import styles from './Styles';
+import { pick } from 'react-native-document-picker';
 
 type Props = {
   isVisible: boolean;
   onClose: () => void;
-  onUploadSuccess: (fileName: string, description: string) => void;
+  onUploadSuccess: (fileName: string, description: string, fileUri: string, fileType: string | null) => void;
   onUploadError: (error: Error) => void;
 };
 
@@ -20,10 +21,14 @@ const UploadDocumentDialog: React.FC<Props> = ({
 }) => {
   const [fileName, setFileName] = useState('');
   const [description, setDescription] = useState('');
+  const fileUriRef = useRef('')
+  const fileTypeRef = useRef<string | null>(null);
 
   const handleClose = () => {
     setFileName('');
     setDescription('');
+    fileUriRef.current = '';
+    fileTypeRef.current = null,
     onClose();
   };
 
@@ -31,7 +36,7 @@ const UploadDocumentDialog: React.FC<Props> = ({
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      onUploadSuccess(fileName, description);
+      onUploadSuccess(fileName, description, fileUriRef.current, fileTypeRef.current);
       handleClose();
     } catch (error) {
       onUploadError(
@@ -39,6 +44,19 @@ const UploadDocumentDialog: React.FC<Props> = ({
       );
     }
   };
+  const onSelectFile = async() => {
+    try{
+      const [pickResult] = await pick({mode: 'import'})
+      console.log('pick result', pickResult);
+      setFileName(pickResult.name ?? '')
+      fileUriRef.current = pickResult.uri;
+      fileTypeRef.current = pickResult.type
+      
+    }catch(e: unknown){
+      console.error('error selecting file', e);
+      
+    }
+  }
 
   return (
     <Modal visible={isVisible} transparent={true} animationType="slide">
@@ -76,7 +94,7 @@ const UploadDocumentDialog: React.FC<Props> = ({
             style={[
               styles.button,
               {backgroundColor: appColor.APP_ORANGE_COLOR},
-            ]}>
+            ]} onPress={onSelectFile}>
             <View style={styles.row}>
               <AddIcon />
               <Text style={styles.buttonText}>Select File</Text>

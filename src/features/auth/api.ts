@@ -3,10 +3,12 @@ import Toast from 'react-native-toast-message';
 import {LoginFormData} from './type';
 import handleApiError from '@/helpers/errorHandling';
 import {ResetPasswordFormData} from './components/ResetPassword/ResetPassword';
+import messaging from '@react-native-firebase/messaging';
 
 async function loginApi(loginCreds: LoginFormData) {
+  const fcmToken = await messaging().getToken();
   try {
-    const response = await RequestService.post('login', loginCreds);
+    const response = await RequestService.post('login', {...loginCreds, device_token: fcmToken});
     if (response && response.status === 200) {
       Toast.show({
         type: 'success',

@@ -5,12 +5,14 @@ interface initialStateProps {
   dispatches: Dispatch[];
   dispatchesDetail: Dispatch | null;
   isFetching: boolean;
+  isUploading: boolean;
   error: null;
 }
 const initialState: initialStateProps = {
   dispatches: [],
   dispatchesDetail: null,
   isFetching: false,
+  isUploading: false,
   error: null,
 };
 export const dispatch = createSlice({
@@ -43,6 +45,17 @@ export const dispatch = createSlice({
       state.isFetching = false;
       state.error = action.payload;
     },
+    uploadDocumentRequest: (state, action) => {
+      state.isUploading = true;
+    },
+    uploadDocumentSuccess: (state) => {
+      state.isUploading = false;
+      state.error = null;
+    },
+    uploadDocumentFailure: (state, action) => {
+      state.isUploading = false;
+      state.error = action.payload;
+    }
   },
 });
 
@@ -53,6 +66,9 @@ export const {
   dispatchDetailByIdRequest,
   dispatchDetailByIdSuccess,
   dispatchDetailByIdFailure,
+  uploadDocumentRequest,
+  uploadDocumentSuccess,
+  uploadDocumentFailure
 } = dispatch.actions;
 
 export default dispatch.reducer;
